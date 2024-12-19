@@ -12,7 +12,7 @@ function generateRandomFilename(length = 10) {
     for (let i = 0; i < length; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    return result;
+    return result + ".png";
 }
 
 export async function POST({ request }) {
@@ -36,13 +36,20 @@ export async function POST({ request }) {
         const buffer = await image.arrayBuffer();
         const imageBuffer = Buffer.from(buffer);
 
-        const extension = path.extname(image.name).toLowerCase();
+        const randomFilename = `${generateRandomFilename()}`;
+        
+        // Set the upload path to the "img" folder (relative to the Docker container's file system)
+        const uploadPath = path.resolve('/app/static/uploads', randomFilename);  // Update to the img folder
 
-        const randomFilename = `${generateRandomFilename()}${extension}`;
-        const uploadPath = path.resolve('static/uploads', randomFilename);
+        // Ensure the img directory exists in case it's not created yet
+        if (!fs.existsSync('/app/static/uploads')) {
+            fs.mkdirSync('/app/static/uploads', { recursive: true });
+        }
+
         fs.writeFileSync(uploadPath, imageBuffer);
 
-        return json({ url: `https://morgane.dev/uploads/${randomFilename}` });
+        // Return the accessible URL (adjust path to match your desired folder structure)
+        return new Response(`https://morgane.dev/uploads/${randomFilename}`);
     } catch (error) {
         console.error('Error:', error);
         return new Response(JSON.stringify({ error: 'Internal server error' }), {
