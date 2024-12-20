@@ -22,6 +22,6 @@
 	<h2 class="child"><a href="https://www.nerdfonts.com/"> NerdFont 󰛖</a></h2>
 	<br>
 	<h2>This website also tries to be accessible to people with dyslexia or color blindness</h2>
-	<h2 class="child"><a href="https://git.morgane.dev/Morgane/website"> Website's source code</a></h2>
+	<h2 class="child"><a href="https://github.com/M0rganeDev/morgane.dev"> Website's source code</a></h2>
 </div>
 <Footer/>

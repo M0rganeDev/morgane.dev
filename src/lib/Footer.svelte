@@ -2,7 +2,7 @@
 	let footer = [
 		{ name: " /credits", url: "/credits" },
 		{ name: "󰮮 /source code", url: "/srcs" },
-		{ name: " /git", url: "https://git.morgane.dev" }
+		{ name: " /git", url: "https://github.com/M0rganeDev" }
 	];
 </script>
 
