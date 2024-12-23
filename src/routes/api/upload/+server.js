@@ -38,7 +38,7 @@ export async function POST({ request }) {
         const randomFilename = `${canIHasRandomNamePlz()}`;
         
 		// this shit took some trial and error to get right
-		const rawPath = '/app/uploads'
+		const rawPath = '/app/static/uploads'
         const uploadPath = path.resolve(rawPath, randomFilename);
 
 		// the dir should always exist but you never know.
