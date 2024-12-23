@@ -3,7 +3,7 @@ import express from 'express';
 
 const app = express();
 
-app.use(express.static('static'));
+app.use(express.static('uploads'));
 app.use(handler);
 
 app.listen(3000, () => {
