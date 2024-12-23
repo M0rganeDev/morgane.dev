@@ -33,11 +33,9 @@ This is a paragraph.
 		<br><center><h1> test rendering markdown, please ignore </h1></center><br>
 	{/if}
 
-	<h1 class="child">{data.slug.replaceAll("-", " ")}</h1>
 	<div class="content">
-		<div class = "content">
-			<SvelteMarkdown {source} />
-		</div>
+		<h1>{data.slug.replaceAll("-", " ")}</h1>
+		<SvelteMarkdown {source} />
 	</div>
 
 {:else}

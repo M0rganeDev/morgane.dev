@@ -4,8 +4,8 @@
 }
 
 html, body {
-    background: rgb(30, 30, 30);
-    color: whitesmoke;
+    background: #1d1f21;
+    color: #b7b8b9;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -40,46 +40,50 @@ hr {
 }
 
 .content {
-	padding-left: 2rem;
+	padding-left: 0.5rem;
 }
+
 .child {
-	padding-left: 2rem;
+	padding-left: 0.5rem; 
+}
+
+@media (min-width: 768px) {
+	.content {
+    	padding-left: 2rem; 
+	}
+
+	.child {
+	    padding-left: 2rem; 
+	}
 }
 
 a {
-    text-decoration: none;
-    color: blueviolet;
+	text-decoration: underline;
+    color: #33859d;
+	transition: color 0.2s;
 }
 
 a:hover {
-    text-decoration: solid;
-    color: limegreen;
+	text-decoration: underline;
+    color: #00ffae;
 }
 
 h1 {
-  font-size: clamp(0.8rem, 5vw, 2rem); /* 2rem minimum, 5vw scaling, max 3.5rem */
+	font-size: clamp(0.8rem, 5vw, 2rem); 
 }
 
 h2 {
-  font-size: clamp(0.75rem, 4.5vw, 1.75rem); /* 1.75rem minimum, 4.5vw scaling, max 3rem */
+	font-size: clamp(0.75rem, 4.5vw, 1.75rem); 
 }
 
 h3 {
-  font-size: clamp(0.5rem, 4vw, 1.3rem); /* 1.5rem minimum, 4vw scaling, max 2.5rem */
+	font-size: clamp(0.5rem, 4vw, 1.3rem);
 }
 
 h4 {
-  font-size: clamp(0.25rem, 3.5vw, 1.125rem); /* 1.25rem minimum, 3.5vw scaling, max 2rem */
+	font-size: clamp(0.25rem, 3.5vw, 1.125rem);
 }
 
-h5 {
-  font-size: clamp(0.125rem, 3vw, 1rem); /* 1.125rem minimum, 3vw scaling, max 1.5rem */
-}
-
-h6 {
-  font-size: clamp(0.1rem, 2.5vw, 1rem); /* 1rem minimum, 2.5vw scaling, max 1.25rem */
-}
-
-p, td, th, li {
-  font-size: clamp(0.1rem, 2.5vw, 1rem); /* 1rem minimum, 2.5vw scaling, max 1.25rem */
+h5, h6, p, td, th, li {
+	font-size: clamp(0.25rem, 2.5vw, 1rem); 
 }
