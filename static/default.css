@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'OpenDyslexic Nerd Font'; /*a name to be used later*/
-    src: url('/NFOpenDyslexic.otf'); /*URL to font*/
+    font-family: 'OpenDyslexic Nerd Font';
+    src: url('/NFOpenDyslexic.otf'); 
 }
 
 html, body {
@@ -13,23 +13,73 @@ html, body {
     flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+body {
+	min-height: 100vh;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, li, td, th {
     font-family: "OpenDyslexic Nerd Font", monospace
+}
+
+table, th, td {
+	border: 1px solid;
+	word-wrap:break-word;
+	width: 50%;
+}
+
+hr {
+	width: calc(50%);
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .wrapper {
     min-height: 100%;
-
-    /* Equal to height of footer */
-    /* But also accounting for potential margin-bottom of last child */
     margin-bottom: -50px;
+}
+
+.content {
+	padding-left: 2rem;
+}
+.child {
+	padding-left: 2rem;
 }
 
 a {
     text-decoration: none;
     color: blueviolet;
 }
+
 a:hover {
     text-decoration: solid;
     color: limegreen;
+}
+
+h1 {
+  font-size: clamp(0.8rem, 5vw, 2rem); /* 2rem minimum, 5vw scaling, max 3.5rem */
+}
+
+h2 {
+  font-size: clamp(0.75rem, 4.5vw, 1.75rem); /* 1.75rem minimum, 4.5vw scaling, max 3rem */
+}
+
+h3 {
+  font-size: clamp(0.5rem, 4vw, 1.3rem); /* 1.5rem minimum, 4vw scaling, max 2.5rem */
+}
+
+h4 {
+  font-size: clamp(0.25rem, 3.5vw, 1.125rem); /* 1.25rem minimum, 3.5vw scaling, max 2rem */
+}
+
+h5 {
+  font-size: clamp(0.125rem, 3vw, 1rem); /* 1.125rem minimum, 3vw scaling, max 1.5rem */
+}
+
+h6 {
+  font-size: clamp(0.1rem, 2.5vw, 1rem); /* 1rem minimum, 2.5vw scaling, max 1.25rem */
+}
+
+p, td, th, li {
+  font-size: clamp(0.1rem, 2.5vw, 1rem); /* 1rem minimum, 2.5vw scaling, max 1.25rem */
 }

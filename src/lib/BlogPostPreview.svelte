@@ -7,11 +7,14 @@
 </script>
 
 <style>
-    .preview {
+    .preview
+	{
 		padding-left: 1rem;
         border: .5rem double darkslategray;
     }
-	.extra-padding {
+
+	.extra-padding
+	{
         padding-left: 5rem;
         padding-right: 5rem;
 	}

@@ -7,28 +7,39 @@
 </script>
 
 <style>
-    .footer {
+	.footer {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: clamp(1rem, 5vw, 10rem);
         background: black;
-        padding: 1rem;
         color: white;
         width: 100%;
         position: fixed;
         bottom: 0;
         left: 0;
+        padding: .125rem 0;
         box-sizing: border-box;
         border-top: .3rem solid white;
     }
+
     .footer-child {
         display: inline-flex;
         align-items: center;
-        padding: 0 1rem;
+        padding: 1rem;
     }
 </style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--
 <footer class="footer">
 	{#each footer as page}
-		<a href="{page.url}"><h2 class="footer-child">{page.name}</h2></a>
+		<a href="{page.url}"><h3 class="footer-child">{page.name}</h3></a>
 	{/each}
 </footer>
+-->

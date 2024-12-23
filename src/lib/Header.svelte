@@ -11,7 +11,7 @@
 	.header {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: clamp(1rem, 5vw, 10rem);
         background: black;
         width: 100%;
         box-sizing: border-box;
@@ -20,11 +20,11 @@
 	.header-child {
         display: inline-flex;
         align-items: center;
-        padding-left: 1rem;
+        padding-left: 10%;
 	}
 </style>
 <header class="header">
 	{#each header as page}
-			<a href="{page.url}"><h2 class="header-child">{page.name}</h2></a>
+			<a href="{page.url}"><h3 class="header-child">{page.name}</h3></a>
 	{/each}
 </header>

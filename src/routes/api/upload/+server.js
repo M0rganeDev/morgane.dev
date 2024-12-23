@@ -5,8 +5,7 @@ import 'dotenv/config';
 
 const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
-// Function to generate a random 10-character string (lowercase letters and numbers)
-function generateRandomFilename(length = 10) {
+function canIHasRandomNamePlz(length = 10) {
     const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     for (let i = 0; i < length; i++) {
@@ -36,19 +35,20 @@ export async function POST({ request }) {
         const buffer = await image.arrayBuffer();
         const imageBuffer = Buffer.from(buffer);
 
-        const randomFilename = `${generateRandomFilename()}`;
+        const randomFilename = `${canIHasRandomNamePlz()}`;
         
-        // Set the upload path to the "img" folder (relative to the Docker container's file system)
-        const uploadPath = path.resolve('/app/static/uploads', randomFilename);  // Update to the img folder
+		// this shit took some trial and error to get right
+		const rawPath = '/app/static/upload'
+        const uploadPath = path.resolve(rawPath, randomFilename);
 
-        // Ensure the img directory exists in case it's not created yet
-        if (!fs.existsSync('/app/static/uploads')) {
-            fs.mkdirSync('/app/static/uploads', { recursive: true });
+		// the dir should always exist but you never know.
+        if (!fs.existsSync(rawPath)) {
+            fs.mkdirSync(rawPath, { recursive: true });
         }
 
         fs.writeFileSync(uploadPath, imageBuffer);
 
-        // Return the accessible URL (adjust path to match your desired folder structure)
+		// my script is dumb and cant parse json, return the raw domain and all
         return new Response(`https://morgane.dev/uploads/${randomFilename}`);
     } catch (error) {
         console.error('Error:', error);
