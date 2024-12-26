@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { json } from '@sveltejs/kit';
 import 'dotenv/config';
+import { dev } from '$app/environment';
 
 const SECRET_TOKEN = process.env.SECRET_TOKEN;
 
@@ -37,18 +38,18 @@ export async function POST({ request }) {
 
         const randomFilename = `${canIHasRandomNamePlz()}`;
         
-		// this shit took some trial and error to get right
-		const rawPath = '/app/static/uploads'
+    		// this shit took some trial and error to get right
+		    const rawPath = (dev ? "" : "/") + 'app/uploads'
         const uploadPath = path.resolve(rawPath, randomFilename);
 
-		// the dir should always exist but you never know.
+		    // the dir should always exist but you never know.
         if (!fs.existsSync(rawPath)) {
             fs.mkdirSync(rawPath, { recursive: true });
         }
 
         fs.writeFileSync(uploadPath, imageBuffer);
 
-		// my script is dumb and cant parse json, return the raw domain and all
+    		// my script is dumb and cant parse json, return the raw domain and all
         return new Response(`https://morgane.dev/uploads/${randomFilename}`);
     } catch (error) {
         console.error('Error:', error);

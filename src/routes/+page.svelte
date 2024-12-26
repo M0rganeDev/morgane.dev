@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
+
 </script>
 
-<Header/>
+<Header />
 <h1 class="content">Welcome to my website !</h1>
 
 <div class="content">

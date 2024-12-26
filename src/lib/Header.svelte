@@ -1,11 +1,27 @@
-<script>
+<script lang="ts">
+	import { dev } from '$app/environment';
+	import { onMount } from 'svelte';
+	import process from 'node:process';
+
 	let header = [
-		{ name: " ", url: "/"},
+		{ name: " ", url: "/" },
 		{ name: "󱂵 /home", url: "/" },
 		{ name: " /projects", url: "/projects" },
 		{ name: " /blog", url: "/blog" },
 		{ name: "󱅻 /about", url: "/about" },
 	];
+
+	let cookies = '';
+	let key: number = 0;
+
+	onMount(() => {
+		cookies = document.cookie;
+		++key;
+		if (cookies.includes("token=" + (dev ? "test" : process.env.ADMIN_PASSWORD)))
+			header.push({ name: " /admin", url: "/admin" });
+	});
+
+
 </script>
 
 <style>
@@ -23,8 +39,10 @@
         align-items: center;
 	}
 </style>
-<header class="header">
-	{#each header as page}
+{#key key}
+	<header class="header">
+		{#each header as page}
 			<h2 class="header-child"><a href="{page.url}">{page.name}</a></h2>
-	{/each}
-</header>
+		{/each}
+	</header>
+{/key}
